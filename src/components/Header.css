@@ -316,7 +316,7 @@
   .header-shell {
     margin: 0;
     border-radius: 0;
-    grid-template-columns: 1fr 80px 80px; /* Logo, Hammer, Contact */
+    grid-template-columns: 1fr 80px;
     grid-template-rows: 70px;
     min-height: 70px;
     background: #10110d;
@@ -325,7 +325,7 @@
   .logo-block {
     grid-row: 1;
     grid-column: 1;
-    padding: 0 20px;
+    padding: 0 30px;
     background: #fff;
     height: 100%;
     display: flex;
@@ -334,66 +334,101 @@
   }
 
   .nav-shell {
-    display: none; /* Hide standard nav on mobile/tab */
+    display: none;
   }
 
   .menu-toggle {
     grid-row: 1;
     grid-column: 2;
     display: flex;
-    position: static; /* Reset absolute positioning */
-    height: 100%;
-    width: 100%;
-    background: #10110d; /* Solid black/dark background as per screenshot */
-    border: none;
-    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 4px;
+    gap: 5px;
+    height: 100%;
+    width: 80px;
+    background: #10110d;
+    border: none;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    cursor: pointer;
   }
 
   .menu-toggle-bar {
-    width: 20px; /* Make bars slightly wider to match screenshot feel */
+    display: block;
+    width: 24px;
+    height: 3px;
+    background: #fff;
+    transition: all 0.3s ease;
+  }
+
+  .menu-toggle-bar:nth-child(2) {
+    width: 16px;
+    transform: translateX(-4px);
   }
 
   .contact-block {
-    grid-row: 1;
-    grid-column: 3;
-    width: 100%;
-    height: 100%;
-    font-size: 10px;
-    padding: 0 15px;
+    display: none !important;
+  }
+
+  /* Contact Button inside Overlay */
+  .menu-overlay-contact-btn {
+    margin-top: 50px;
     background: #bf0838;
-    border-radius: 0;
+    color: #fff;
+    border: none;
+    padding: 20px 40px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    align-self: flex-start;
+    box-shadow: 0 10px 25px rgba(191, 8, 56, 0.3);
+  }
+
+  .menu-overlay-contact-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(191, 8, 56, 0.5);
+    background: #de113c;
   }
 }
 
 @media (max-width: 480px) {
   .header-shell {
-    grid-template-columns: 1fr 60px 60px;
+    grid-template-columns: 1fr 70px;
     min-height: 60px;
+    grid-template-rows: 60px;
   }
   
-  .logo-block img {
-    max-width: 100px;
+  .logo-block {
+    padding: 0 20px;
   }
 
-  .menu-toggle, .contact-block {
+  .logo-block img {
+    height: 32px;
+  }
+
+  .menu-toggle {
+    width: 70px;
     height: 60px;
   }
 
-  .contact-block {
-    font-size: 8px;
-    padding: 0 5px;
+  .menu-overlay-contact-btn {
+    width: 100%;
+    text-align: center;
+    padding: 16px;
+    font-size: 13px;
   }
 }
 
 @media (max-width: 360px) {
   .header-shell {
-    grid-template-columns: 1fr 50px 50px;
+    grid-template-columns: 1fr 60px;
   }
 
-  .logo-block img {
-    max-width: 80px;
+  .menu-toggle {
+    width: 60px;
   }
 }

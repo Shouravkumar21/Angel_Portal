@@ -134,6 +134,19 @@ export default function Header() {
               </ul>
             </div>
           </div>
+
+          <button 
+            type="button" 
+            className="menu-overlay-contact-btn"
+            onClick={() => {
+              closeMenu();
+              setTimeout(() => {
+                document.getElementById('footer')?.scrollIntoView({ behavior: 'smooth' });
+              }, 300);
+            }}
+          >
+            Contact us
+          </button>
         </div>
       </div>
     </>

@@ -1605,6 +1605,7 @@
   color: #555;
   line-height: 1.6;
   display: -webkit-box;
+  line-clamp: 3;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
@@ -1942,20 +1943,39 @@
   }
 
   .programmes-carousel {
-    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
   }
 
-  .carousel-prev {
+  .carousel-prev, .carousel-next {
     order: 1;
+    margin-top: 10px;
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
-  .carousel-next {
-    order: 2;
+  .carousel-prev::after, .carousel-next::after {
+    border-color: #c40f34;
   }
 
   .programmes-track-wrap {
     order: 0;
+    flex: 0 0 100%;
     width: 100%;
+  }
+
+  .programmes-dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
   }
 
   .programme-card {
@@ -2072,7 +2092,7 @@
   }
 
   .campuses-panels {
-    min-height: 360px;
+    min-height: 440px;
   }
 
   .campus-panel-image {
@@ -2089,7 +2109,8 @@
   }
 
   .campus-panel-body {
-    padding: 16px;
+    padding: 24px;
+    gap: 20px;
   }
 
   .partners-kicker {
@@ -2659,19 +2680,31 @@
 }
 
 @media (max-width: 992px) {
-  .cta-v4-content {
+  .cta-final-wrap {
     flex-direction: column;
     text-align: center;
   }
-  .cta-v4-shell {
+  .cta-final-box {
     padding: 60px 40px;
   }
   .cta-v4-title { font-size: 48px; }
 }
 
 @media (max-width: 480px) {
-  .cta-v4-title { font-size: 38px; }
-  .cta-v4-shell { padding: 40px 20px; }
+  .cta-v4-title { font-size: 34px; }
+  .cta-final-box { 
+    padding: 40px 20px;
+    border-radius: 20px;
+    margin: 0 10px;
+  }
+  .cta-final-btn {
+    width: 100%;
+    padding: 16px 20px;
+    font-size: 14px;
+  }
+  .cta-v4-desc {
+    font-size: 15px;
+  }
 }
 
 .cta-primary {
@@ -2765,10 +2798,21 @@
   .campus-panel-body {
     flex-direction: column;
     align-items: flex-start;
+    padding: 24px !important; /* Force enough padding for shadows */
+    gap: 20px;
   }
 
   .campus-go {
     align-self: flex-start;
+    margin-top: 10px;
+  }
+  
+  .campus-go i {
+    transform: translateX(1px); /* Visually center the chevron */
+  }
+
+  .campuses-panels {
+    min-height: 460px; /* More room for descriptive text */
   }
 }
 
